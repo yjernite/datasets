@@ -21,8 +21,9 @@ import json
 import logging
 import os
 
-import nlp
 from checklist.test_suite import TestSuite
+
+import nlp
 
 
 _CITATION = """\

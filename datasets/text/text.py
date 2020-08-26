@@ -3,13 +3,19 @@ import nlp
 
 class Text(nlp.GeneratorBasedBuilder):
     def _info(self):
-        return nlp.DatasetInfo(features=nlp.Features({"text": nlp.Value("string"),}))
+        return nlp.DatasetInfo(
+            features=nlp.Features(
+                {
+                    "text": nlp.Value("string"),
+                }
+            )
+        )
 
     def _split_generators(self, dl_manager):
-        """ The `datafiles` kwarg in load_dataset() can be a str, List[str], Dict[str,str], or Dict[str,List[str]].
+        """The `datafiles` kwarg in load_dataset() can be a str, List[str], Dict[str,str], or Dict[str,List[str]].
 
-            If str or List[str], then the dataset returns only the 'train' split.
-            If dict, then keys should be from the `nlp.Split` enum.
+        If str or List[str], then the dataset returns only the 'train' split.
+        If dict, then keys should be from the `nlp.Split` enum.
         """
         if isinstance(self.config.data_files, (str, list, tuple)):
             # Handle case with only one split

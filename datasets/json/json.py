@@ -41,8 +41,7 @@ class Json(nlp.ArrowBasedBuilder):
         return nlp.DatasetInfo(features=self.config.features)
 
     def _split_generators(self, dl_manager):
-        """ We handle string, list and dicts in datafiles
-        """
+        """We handle string, list and dicts in datafiles"""
         if isinstance(self.config.data_files, (str, list, tuple)):
             files = self.config.data_files
             if isinstance(files, str):
@@ -78,7 +77,9 @@ class Json(nlp.ArrowBasedBuilder):
             else:
                 try:
                     pa_table = paj.read_json(
-                        file, read_options=self.config.pa_read_options, parse_options=self.config.pa_parse_options,
+                        file,
+                        read_options=self.config.pa_read_options,
+                        parse_options=self.config.pa_parse_options,
                     )
                 except pa.ArrowInvalid:
                     with open(file, encoding="utf-8") as f:

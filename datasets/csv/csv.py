@@ -54,8 +54,7 @@ class Csv(nlp.ArrowBasedBuilder):
         return nlp.DatasetInfo()
 
     def _split_generators(self, dl_manager):
-        """ We handle string, list and dicts in datafiles
-        """
+        """We handle string, list and dicts in datafiles"""
         if isinstance(self.config.data_files, (str, list, tuple)):
             files = self.config.data_files
             if isinstance(files, str):
