@@ -7,6 +7,7 @@ languages:
 - en
 licenses:
 - mit
+- other
 multilinguality:
 - monolingual
 size_categories:
